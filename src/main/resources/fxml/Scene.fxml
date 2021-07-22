@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml" fx:controller="com.citec.phonebook.FXMLController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.citec.phonebook.FXMLController">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" layoutY="62.0" prefHeight="618.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <StackPane prefHeight="616.0" prefWidth="235.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Pane prefHeight="616.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="142.0" layoutY="14.0" text="Exportálás PDF-be">
+                           <font>
+                              <Font size="34.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="55.0" layoutY="120.0" text="A fájl neve:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="167.0" layoutY="114.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="237.0" layoutY="189.0" mnemonicParsing="false" text="Mentés">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children></Pane>
+                  <Pane prefHeight="616.0" prefWidth="557.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView prefHeight="433.0" prefWidth="557.0">
+                          <placeholder>
+                            <Label text = "Nincs adat." />
+                          </placeholder>
+                          <columns>
+                          </columns>
+                        </TableView>
+                        <Label alignment="CENTER_RIGHT" layoutX="35.0" layoutY="478.0" text="Vezetéknév:" textAlignment="CENTER" />
+                        <Label alignment="CENTER_RIGHT" layoutX="35.0" layoutY="513.0" prefHeight="17.0" prefWidth="63.0" text="Keresztnév:" textAlignment="CENTER" />
+                        <Label alignment="CENTER_RIGHT" layoutX="31.0" layoutY="549.0" text="Telefonszám:" textAlignment="CENTER" />
+                        <TextField layoutX="130.0" layoutY="474.0" />
+                        <TextField layoutX="130.0" layoutY="509.0" />
+                        <TextField layoutX="130.0" layoutY="545.0" />
+                        <Button layoutX="313.0" layoutY="509.0" mnemonicParsing="false" text="Új kontakt hozzáadása" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>
