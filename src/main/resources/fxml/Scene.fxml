@@ -13,12 +13,12 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <StackPane prefHeight="616.0" prefWidth="235.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <StackPane id="menuPane" fx:id="menuPane" prefHeight="616.0" prefWidth="235.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Pane prefHeight="616.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane id="exportPane" fx:id="exportPane" prefHeight="616.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label layoutX="142.0" layoutY="14.0" text="Exportálás PDF-be">
                            <font>
@@ -30,22 +30,22 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="167.0" layoutY="114.0">
+                        <TextField id="inputExportName" fx:id="inputExportName" layoutX="167.0" layoutY="114.0">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
-                        <Button layoutX="237.0" layoutY="189.0" mnemonicParsing="false" text="Mentés">
+                        <Button id="exportButton" fx:id="exportButton" layoutX="237.0" layoutY="189.0" mnemonicParsing="false" text="Mentés">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
                      </children></Pane>
-                  <Pane prefHeight="616.0" prefWidth="557.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane id="contactPane" fx:id="contactPane" prefHeight="616.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView prefHeight="433.0" prefWidth="557.0">
+                        <TableView id="table" fx:id="table" editable="true" prefHeight="433.0" prefWidth="557.0">
                           <placeholder>
-                            <Label text = "Nincs adat." />
+                            <Label text="Nincs adat." />
                           </placeholder>
                           <columns>
                           </columns>
@@ -53,10 +53,10 @@
                         <Label alignment="CENTER_RIGHT" layoutX="35.0" layoutY="478.0" text="Vezetéknév:" textAlignment="CENTER" />
                         <Label alignment="CENTER_RIGHT" layoutX="35.0" layoutY="513.0" prefHeight="17.0" prefWidth="63.0" text="Keresztnév:" textAlignment="CENTER" />
                         <Label alignment="CENTER_RIGHT" layoutX="31.0" layoutY="549.0" text="Telefonszám:" textAlignment="CENTER" />
-                        <TextField layoutX="130.0" layoutY="474.0" />
-                        <TextField layoutX="130.0" layoutY="509.0" />
-                        <TextField layoutX="130.0" layoutY="545.0" />
-                        <Button layoutX="313.0" layoutY="509.0" mnemonicParsing="false" text="Új kontakt hozzáadása" />
+                        <TextField id="inputLastname" fx:id="inputLastname" layoutX="130.0" layoutY="474.0" />
+                        <TextField id="inputFirstname" fx:id="inputFirstname" layoutX="130.0" layoutY="509.0" />
+                        <TextField id="inputPhone" fx:id="inputPhone" layoutX="130.0" layoutY="545.0" />
+                        <Button id="addNewContactButton" fx:id="addNewContactButton" onAction="#addContact" layoutX="313.0" layoutY="509.0" mnemonicParsing="false" text="Új kontakt hozzáadása" />
                      </children>
                   </Pane>
                </children>
