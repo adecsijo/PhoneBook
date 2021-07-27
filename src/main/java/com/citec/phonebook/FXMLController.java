@@ -54,11 +54,7 @@ public class FXMLController implements Initializable {
     Button exportButton;
 //</editor-fold>
     
-    private final ObservableList<Person> data = FXCollections.observableArrayList(
-            new Person("Kovács", "Gazsi", "+36501234567"),
-            new Person("Kovács", "Babi", "+36598765432"),
-            new Person("Nagy", "Pali", "+36567837655")
-    );
+    private final ObservableList<Person> data = FXCollections.observableArrayList();
     
     @FXML
     private void addContact(ActionEvent event) {
@@ -66,6 +62,7 @@ public class FXMLController implements Initializable {
         if (phone.length() >= 6 && phone.startsWith("+")) {
             Person person = new Person(inputLastname.getText(), inputFirstname.getText(), phone);
             data.add(person);
+            db.addContact(person);
             inputLastname.clear();
             inputFirstname.clear();
             inputPhone.clear();
@@ -83,6 +80,7 @@ public class FXMLController implements Initializable {
             public void handle(TableColumn.CellEditEvent<Person, String> event) {
                 Person person = event.getTableView().getItems().get(event.getTablePosition().getRow());
                 person.setLastName(event.getNewValue());
+                db.updateContact(person);
             }
         });
         
@@ -96,6 +94,7 @@ public class FXMLController implements Initializable {
             public void handle(TableColumn.CellEditEvent<Person, String> event) {
                 Person person = event.getTableView().getItems().get(event.getTablePosition().getRow());
                 person.setFirstName(event.getNewValue());
+                db.updateContact(person);
             }
         });
         
@@ -109,6 +108,7 @@ public class FXMLController implements Initializable {
             public void handle(TableColumn.CellEditEvent<Person, String> event) {
                 Person person = event.getTableView().getItems().get(event.getTablePosition().getRow());
                 person.setPhone(event.getNewValue());
+                db.updateContact(person);
             }
         });
         

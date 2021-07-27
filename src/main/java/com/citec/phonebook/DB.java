@@ -2,6 +2,7 @@ package com.citec.phonebook;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -40,11 +41,39 @@ public class DB {
                 person.setFirstName(rs.getString("firstname"));
                 person.setLastName(rs.getString("lastname"));
                 person.setPhone(rs.getString("phone"));
+                person.setId(rs.getString("id"));
                 result.add(person);
             }
         } catch (SQLException e) {
             System.err.println("Hiba a lekérdezés közben: findAll() " + e);
         }
         return result;
+    }
+    
+    public void addContact(Person person) {
+        try {
+            String query = "insert into contacts (lastname, firstname, phone) values (?,?,?)";
+            PreparedStatement ptst = conn.prepareStatement(query);
+            ptst.setString(1, person.getLastName());
+            ptst.setString(2, person.getFirstName());
+            ptst.setString(3, person.getPhone());
+            ptst.execute();
+        } catch (SQLException e) {
+            System.err.println("Hiba a lekérdezés közben: addContact() " + e);
+        }
+    }
+    
+    public void updateContact(Person person) {
+        try {
+            String query = "update contacts set lastname = ?, firstname = ?, phone = ? where id = ?";
+            PreparedStatement ptst = conn.prepareStatement(query);
+            ptst.setString(1, person.getLastName());
+            ptst.setString(2, person.getFirstName());
+            ptst.setString(3, person.getPhone());
+            ptst.setString(4, person.getId());
+            ptst.execute();
+        } catch (SQLException e) {
+            System.err.println("Hiba a lekérdezés közben: updateContact() " + e);
+        }
     }
 }
